@@ -1,3 +1,149 @@
-.App {
-  text-align: center;
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #191c21;
+}
+
+.content {
+  position: relative;
+  width: 440px;
+  height: 600px;
+
+  .star-TL , .star-TR {
+    position: absolute;
+    font-size: 20px;
+    color: #f59549;
+    top: 36px;
+  }
+  .star-TL {
+    left: 115px;
+  }
+  .star-TL::before {
+    content: "+";
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 16px;
+    transform: rotate(45deg);
+  }
+  .star-TR {
+    right: 115px;
+  }
+  .star-TR::before {
+    content: "+";
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    font-size: 16px;
+    transform: rotate(45deg);
+  }
+
+  .mask-base {
+    position: relative;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+    width: 440px;
+    height: 600px;
+    background-color: #f59549;
+  
+    .base {
+      position: relative;
+      right: -2px;
+      bottom: -2px;
+      width: 436px;
+      height: 596px;
+      background-color: #191c21;
+      clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+  
+      .horizon-line {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        border-bottom: 2px solid #f59549;
+      }
+
+      
+    }
+  }
+
+  .planets-BL {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    bottom: 90px;
+    left: 50px;
+
+    .planet-small {
+      width: 4px;
+      height: 4px;
+      background-color: #f59549;
+      border-radius: 50%;
+    }
+    .planet-medium {
+      width: 8px;
+      height: 8px;
+      background-color: #f59549;
+      border-radius: 50%;
+    }
+    .planet-big {
+      width: 24px;
+      height: 24px;
+      border: 1px solid #f59549;
+      background-color: #191c21;
+      border-radius: 50%;
+    }
+    .planet-big::before {
+      content: "";
+      position: absolute;
+      top: 45%;
+      left: 42%;
+      width: 46px;
+      border-bottom: 1px solid #f59549;
+      transform: rotate(45deg);
+    }
+  }
+
+  .planets-BR {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    position: absolute;
+    bottom: 90px;
+    right: 60px;
+
+    .planet-small {
+      width: 4px;
+      height: 4px;
+      border: 1px solid #f59549;
+      background-color: #191c21;
+      border-radius: 50%;
+    }
+    .planet-medium {
+      width: 8px;
+      height: 8px;
+      background-color: #f59549;
+      border-radius: 50%;
+    }
+    .planet-big {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #f59549;
+      background-color: #191c21;
+      border-radius: 50%;
+    }
+  }
+}
+
+.wave {
+  position: absolute;
+  bottom: 10%;
+  width: 200px;
+  height: 20px;
+  background-size: 20px;
+  // background-repeat: repeat-x;
 }
