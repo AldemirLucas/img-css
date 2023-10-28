@@ -56,7 +56,17 @@
       height: 596px;
       background-color: #191c21;
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
-  
+
+      .sun {
+        position: absolute;
+        top: 161px;
+        left: 173px;
+        width: 90px;
+        height: 90px;
+        background-color: #f59549;
+        border-radius: 50%;
+      }
+
       .horizon-line {
         position: absolute;
         width: 100%;
@@ -64,7 +74,81 @@
         border-bottom: 2px solid #f59549;
       }
 
-      
+      .reflex {
+        position: absolute;
+        bottom: 100px;
+        left: 3px;
+        width: 440px;
+        height: 198px;
+        background: repeating-linear-gradient(
+          -54deg,
+          #f59549 19px,
+          #f59549,
+          transparent 20px,
+          transparent 36px
+        );
+
+        .shadow {
+          position: absolute;
+          top: 2px;
+          left: 139px;
+          width: 141px;
+          height: 92px;
+          clip-path: polygon(50% 100%, 0 0, 100% 0);
+          background-color: #191c21;
+        }
+        .shadow:first-child {
+          left: 45px;
+          width: 102px;
+          height: 59px;
+        }
+        .shadow:last-child {
+          left: 261px;
+          width: 131px;
+          height: 62px;
+        }
+      }
+
+      .waves {
+        position: absolute;
+        width: 440px;
+        height: 90px;
+        bottom: 0;
+
+        .wave {
+          position: absolute;
+          bottom: 54px;
+          left: 24px;
+          width: 100%;
+          height: 12px;
+          background:
+            linear-gradient(to bottom left, transparent 50%, #f59549 50%),
+            linear-gradient(to bottom right, transparent 50%, #f59549 50%);
+          background-size: 30px;
+          background-repeat: repeat-x;
+        }
+        .wave::before {
+          content: "";
+          position: absolute;
+          bottom: -16%;
+          width: 100%;
+          height: 12px;
+          background:
+            linear-gradient(to bottom left, transparent 50%, #191c21 50%),
+            linear-gradient(to bottom right, transparent 50%, #191c21 50%);
+          background-size: 30px;
+          background-repeat: repeat-x;
+        }
+
+        .wave:first-child {
+          bottom: 0;
+          top: 0;
+        }
+        .wave:last-child {
+          bottom: 30px;
+          left: 23px;
+        }
+      }
     }
   }
 
@@ -137,13 +221,4 @@
       border-radius: 50%;
     }
   }
-}
-
-.wave {
-  position: absolute;
-  bottom: 10%;
-  width: 200px;
-  height: 20px;
-  background-size: 20px;
-  // background-repeat: repeat-x;
 }
