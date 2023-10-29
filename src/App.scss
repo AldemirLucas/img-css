@@ -66,20 +66,13 @@
 
         .cross {
           position: absolute;
-          height: 1px;
+          height: 12px;
           width: 12px;
-          top: 20px;
-          left: 14px;
+          font-size: 26px;
+          color: #f59549;
+          top: 9px;
+          left: 18px;
           transform: rotate(45deg);
-          border-bottom: 1px solid #f59549;
-        }
-        .cross::before {
-          content: "";
-          position: absolute;
-          height: 1px;
-          width: 12px;
-          transform: rotate(90deg);
-          border-bottom: 1px solid #f59549;
         }
         .center {
           position: absolute;
@@ -88,6 +81,22 @@
           width: 1px;
           height: 18px;
           border-right: 1px solid #f59549;
+        }
+        .cut {
+          position: absolute;
+          height: 1px;
+          width: 5px;
+          border-bottom: 1px solid #f59549;
+          top: 20px;
+          left: 27px;
+        }
+        .cut::before {
+          content: "";
+          position: absolute;
+          height: 1px;
+          width: 5px;
+          border-bottom: 1px solid #f59549;
+          right: 20px;
         }
       }
 

@@ -67,7 +67,7 @@ function App() {
           <div className="base">
 
             <div className="bigStar">
-              <span className="cross"/>
+              <span className="cross">+</span>
               <span className="center"/>
               <span className="cut"/>
             </div>
