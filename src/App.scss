@@ -57,6 +57,83 @@
       background-color: #191c21;
       clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
 
+      .bigStar {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        top: 26px;
+        left: 198px;
+
+        .cross {
+          position: absolute;
+          height: 1px;
+          width: 12px;
+          top: 20px;
+          left: 14px;
+          transform: rotate(45deg);
+          border-bottom: 1px solid #f59549;
+        }
+        .cross::before {
+          content: "";
+          position: absolute;
+          height: 1px;
+          width: 12px;
+          transform: rotate(90deg);
+          border-bottom: 1px solid #f59549;
+        }
+        .center {
+          position: absolute;
+          top: 12px;
+          left: 18px;
+          width: 1px;
+          height: 18px;
+          border-right: 1px solid #f59549;
+        }
+      }
+
+      .stars {
+        position: absolute;
+        overflow: hidden;
+        width: 440px;
+        height: 300px;
+
+        .lineStarsF, .lineStarsS, .lineStarsT, .lineStarsQ, .lineStarsX {
+          position: absolute;
+          width: 330px;
+          height: 330px;
+          left: 53px;
+        }
+
+        .lineStarsF {
+          top: 68px;
+          transform: rotate(52deg);
+        }
+        .lineStarsS {
+          top: 76px;
+          transform: rotate(42deg);
+        }
+        .lineStarsT {
+          top: 85px;
+          transform: rotate(39deg);
+        }
+        .lineStarsQ {
+          top: 93px;
+          transform: rotate(42deg);
+        }
+        .lineStarsX {
+          top: 102px;
+          transform: rotate(45deg);
+        }
+
+        .barrerLineStars {
+          position: absolute;
+          top: 170px;
+          width: 440px;
+          height: 130px;
+          background-color: #191c21;
+        }
+      }
+
       .sun {
         position: absolute;
         top: 161px;
@@ -65,6 +142,76 @@
         height: 90px;
         background-color: #f59549;
         border-radius: 50%;
+      }
+
+      .pyramids {
+        position: absolute;
+        top: 200px;
+        width: 440px;
+        height: 100px;
+
+        .pyramid {
+          position: absolute;
+          top: 39px;
+          left: 284px;
+          width: 100px;
+          height: 120px;
+          background-color: #f59549;
+          clip-path: polygon(50% 0, 100% 50%, 0 50%);
+        }
+        .pyramid::before {
+          content: "";
+          position: absolute;
+          top: 2px;
+          width: 100px;
+          height: 120px;
+          background-color: #191c21;
+          clip-path: polygon(50% 0, 100% 50%, 0 50%);
+        }
+        .pyramid:first-child {
+          left: 56px;
+        }
+
+        .pyramidCenter {
+          position: absolute;
+          top: 5px;
+          left: 147px;
+          width: 146px;
+          height: 188px;
+          clip-path: polygon(50% 0, 100% 50%, 0 50%);
+          background-color: #f59549;
+
+          .shadow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+              0deg,
+              #f59549 19px,
+              #f59549,
+              transparent 20px,
+              transparent 29px
+            );
+          }
+
+          .light {
+            position: absolute;
+            top: 2px;
+            width: 146px;
+            height: 188px;
+            clip-path: polygon(50% 0%, 50% 100%, 150% 100%);
+            background-color: #191c21;
+          }
+        }
+        .pyramidCenter::before {
+          content: "";
+          position: absolute;
+          top: 2px;
+          width: 146px;
+          height: 188px;
+          clip-path: polygon(50% 0, 100% 50%, 0 50%);
+          background-color: #191c21;
+        }
       }
 
       .horizon-line {
@@ -90,7 +237,7 @@
 
         .shadow {
           position: absolute;
-          top: 2px;
+          top: 1.5px;
           left: 139px;
           width: 141px;
           height: 92px;
