@@ -1,6 +1,44 @@
+import { useState } from 'react';
 import './App.scss';
 
 function App() {
+  const [primaryColor, setPrimaryColor] = useState("#f59549")
+  const [bgColor, setBgColor] = useState("#191c21")
+
+  function getRandomContrastingColors() {
+    const randomColor = () => {
+      const letters = '0123456789ABCDEF'
+      let color = '#'
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)]
+      }
+      return color;
+    }
+  
+    const primaryColor = randomColor()
+    let bgColor = randomColor()
+
+    const isContrasting = (c1, c2) => {
+      const rgbPrimaryColor = parseInt(c1.slice(1), 16)
+      const rgbBgColor = parseInt(c2.slice(1), 16)
+      const luminancePrimaryColor = 0.299 * ((rgbPrimaryColor >> 16) & 255) + 0.587 * ((rgbPrimaryColor >> 8) & 255) + 0.114 * (rgbPrimaryColor & 255)
+      const luminanceBgColor = 0.299 * ((rgbBgColor >> 16) & 255) + 0.587 * ((rgbBgColor >> 8) & 255) + 0.114 * (rgbBgColor & 255)
+
+      return Math.abs(luminancePrimaryColor - luminanceBgColor) >= 128;
+    };
+
+    while (!isContrasting(primaryColor, bgColor)) {
+      bgColor = randomColor()
+    }
+  
+    return [primaryColor, bgColor]
+  }
+
+  const fetchColor = () => {
+    const [a, b] = getRandomContrastingColors()
+    setPrimaryColor(a)
+    setBgColor(b)
+  }
 
   const Stars = () => {
     const circleStarsStyle = {
@@ -14,7 +52,7 @@ function App() {
       position: "absolute",
       width: "2px",
       height: "2px",
-      backgroundColor: "#f59549",
+      backgroundColor: primaryColor,
       borderRadius: "50%",
     }
 
@@ -46,7 +84,7 @@ function App() {
   }
 
   return (
-    <div className="container">
+    <div className="container" style={{ "--primary-color": primaryColor, "--bg-color": bgColor }}>
 
       <div className="content">
         <p className="star-TL">+</p>
@@ -66,7 +104,10 @@ function App() {
         <div className="mask-base">
           <div className="base">
 
-            <div className="bigStar">
+            <div className="bigStar" onClick={() => {
+              setPrimaryColor("#f59549")
+              setBgColor("#191c21")
+            }}>
               <span className="cross">+</span>
               <span className="center"/>
               <span className="cut"/>
@@ -92,6 +133,8 @@ function App() {
             </div>
 
             <span className="sun"/>
+            <span className="eventSun" onClick={() => fetchColor()}/>
+            <span className="shadowEventSun" />
 
             <div className="pyramids">
               <span className="pyramid"/>
