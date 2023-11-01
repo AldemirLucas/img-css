@@ -12,7 +12,7 @@ function App() {
       for (let i = 0; i < 6; i++) {
         color += letters[Math.floor(Math.random() * 16)]
       }
-      return color;
+      return color
     }
   
     const primaryColor = randomColor()
@@ -24,8 +24,8 @@ function App() {
       const luminancePrimaryColor = 0.299 * ((rgbPrimaryColor >> 16) & 255) + 0.587 * ((rgbPrimaryColor >> 8) & 255) + 0.114 * (rgbPrimaryColor & 255)
       const luminanceBgColor = 0.299 * ((rgbBgColor >> 16) & 255) + 0.587 * ((rgbBgColor >> 8) & 255) + 0.114 * (rgbBgColor & 255)
 
-      return Math.abs(luminancePrimaryColor - luminanceBgColor) >= 128;
-    };
+      return Math.abs(luminancePrimaryColor - luminanceBgColor) >= 128
+    }
 
     while (!isContrasting(primaryColor, bgColor)) {
       bgColor = randomColor()
@@ -60,9 +60,9 @@ function App() {
     const starsCount = 360/4
 
     for (let i = 0; i < starsCount; i++) {
-      const angle = i * 6;
-      const x = Math.cos((angle * Math.PI) / 180) * 48 + 50;
-      const y = Math.sin((angle * Math.PI) / 180) * 48 + 50;
+      const angle = i * 6
+      const x = Math.cos((angle * Math.PI) / 180) * 48 + 50
+      const y = Math.sin((angle * Math.PI) / 180) * 48 + 50
   
       stars.push(
         <div
@@ -165,4 +165,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

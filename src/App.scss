@@ -168,8 +168,8 @@
         height: 90px;
         background-color: var(--primary-color);
         border-radius: 50%;
-        -webkit-animation: heartbeat 5s ease-in-out infinite both;
-          animation: heartbeat 5s ease-in-out infinite both;
+        -webkit-animation: heartbeat 15s ease-in-out infinite both;
+          animation: heartbeat 15s ease-in-out infinite both;
       }
       .eventSun {
         cursor: pointer;
